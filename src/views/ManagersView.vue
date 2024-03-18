@@ -1,8 +1,6 @@
 <template>
-  <a-table :columns="columns" :data-source="data" :pagination="false">
-    <template #emptyText> <component :is="lodaingStatus" /></template>
-
-    <template #bodyCell="{ column, record }">
+  <TableLoader :columns="columns" :api-function="getAllUsers">
+    <template #default="{ column, record }">
       <template v-if="column.key === 'name'">
         {{ record.name }}
       </template>
@@ -10,40 +8,20 @@
         {{ record.email }}
       </template>
     </template>
-  </a-table>
+  </TableLoader>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { getAllUsers } from '@/api/api'
-import { useApi } from '@/composables/useApi'
-import { computed, onMounted } from 'vue'
-import EmptyData from '../components/EmptyData.vue'
-import LoadingData from '../components/LoadingData.vue'
-import LoadingError from '../components/LoadingError.vue'
-
-const { request, result, isLoading, error } = useApi(getAllUsers, { showProgress: true })
-const lodaingStatus = computed(() => {
-  if (error.value) {
-    return LoadingError
-  }
-
-  return isLoading.value ? LoadingData : EmptyData
-})
-const data = computed(() => {
-  if (!result.value) {
-    return []
-  }
-
-  return result.value
-})
-
-onMounted(request)
-
-const columns = [
+import TableLoader from '@/components/TableLoader.vue'
+import type { ATableColumn } from '@/types'
+const columns: ATableColumn[] = [
   {
     title: 'Имя',
     dataIndex: 'name',
     key: 'name',
+    width: 300,
+    ellipsis: true,
   },
   {
     title: 'E-mail',
@@ -52,3 +30,5 @@ const columns = [
   },
 ]
 </script>
+
+<style scoped></style>

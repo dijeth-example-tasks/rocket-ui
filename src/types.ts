@@ -20,3 +20,11 @@ export interface Lead {
   user: User
   status: Status
 }
+
+export type ATableColumn = {
+  title: string
+  dataIndex: string
+  key: string
+  width?: number
+  ellipsis?: boolean
+}

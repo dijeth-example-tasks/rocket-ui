@@ -31,5 +31,6 @@ declare module 'vue' {
     LoadingError: typeof import('./src/components/LoadingError.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TableLoader: typeof import('./src/components/TableLoader.vue')['default']
   }
 }

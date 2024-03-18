@@ -1,8 +1,6 @@
 <template>
-  <a-table :columns="columns" :data-source="data">
-    <template #emptyText> <component :is="lodaingStatus" /></template>
-
-    <template #bodyCell="{ column, record }">
+  <TableLoader :columns="columns" :api-function="getAllLeads">
+    <template #default="{ column, record }">
       <template v-if="column.key === 'name'">
         {{ record.name }}
       </template>
@@ -19,44 +17,24 @@
         {{ formatDate(record.createdAt) }}
       </template>
     </template>
-  </a-table>
+  </TableLoader>
 </template>
 
 <script lang="ts" setup>
 import { getAllLeads } from '@/api/api'
-import { useApi } from '@/composables/useApi'
-import { computed, onMounted } from 'vue'
-import EmptyData from '../components/EmptyData.vue'
-import LoadingData from '../components/LoadingData.vue'
-import LoadingError from '../components/LoadingError.vue'
-
-const { request, result, isLoading, error } = useApi(getAllLeads, { showProgress: true })
-const lodaingStatus = computed(() => {
-  if (error.value) {
-    return LoadingError
-  }
-
-  return isLoading.value ? LoadingData : EmptyData
-})
-const data = computed(() => {
-  if (!result.value) {
-    return []
-  }
-
-  return result.value
-})
+import TableLoader from '@/components/TableLoader.vue'
+import type { ATableColumn } from '@/types'
 
 const formatDate = (unixTime: number) => new Date(unixTime * 1000).toString().split('GMT')[0]
 const formatPrice = (price: number) =>
   `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} руб.`
 
-onMounted(request)
-
-const columns = [
+const columns: ATableColumn[] = [
   {
     title: 'Название',
     dataIndex: 'name',
     key: 'name',
+    ellipsis: true,
   },
   {
     title: 'Бюджет',
