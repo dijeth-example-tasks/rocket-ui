@@ -22,7 +22,7 @@
           </span>
         </template>
         <template #extra>
-          <a-input-search v-model:value="query" placeholder="Поиск" />
+          <UiSearch @search="handleSearch" />
         </template>
         <RouterView #default="{ Component }">
           <KeepAlive>
@@ -36,8 +36,10 @@
 
 <script lang="ts" setup>
 import { AuditOutlined, TeamOutlined } from '@ant-design/icons-vue'
-import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from './composables/useStore'
+import UiSearch from './components/UiSearch.vue'
+
 const tabList = [
   {
     key: 'leads',
@@ -51,7 +53,11 @@ const tabList = [
 
 const router = useRouter()
 const route = useRoute()
-const query = ref<string | null>(null)
+const { query } = useStore()
+
+const handleSearch = (value: string) => {
+  query.value = value
+}
 
 const onTabChange = (value: string) => {
   router.push({ name: value })
