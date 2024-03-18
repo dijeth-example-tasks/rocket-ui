@@ -28,6 +28,7 @@ declare module 'vue' {
     ATag: typeof import('ant-design-vue/es')['Tag']
     EmptyData: typeof import('./src/components/EmptyData.vue')['default']
     EmptyTable: typeof import('./src/components/EmptyTable.vue')['default']
+    LeadStatus: typeof import('./src/components/LeadStatus.vue')['default']
     LoadingData: typeof import('./src/components/LoadingData.vue')['default']
     LoadingError: typeof import('./src/components/LoadingError.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
