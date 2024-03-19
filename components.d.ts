@@ -24,6 +24,7 @@ declare module 'vue' {
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     ASpace: typeof import('ant-design-vue/es')['Space']
     ASpin: typeof import('ant-design-vue/es')['Spin']
+    ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATag: typeof import('ant-design-vue/es')['Tag']
     EmptyData: typeof import('./src/components/EmptyData.vue')['default']
@@ -31,9 +32,12 @@ declare module 'vue' {
     LeadStatus: typeof import('./src/components/LeadStatus.vue')['default']
     LoadingData: typeof import('./src/components/LoadingData.vue')['default']
     LoadingError: typeof import('./src/components/LoadingError.vue')['default']
+    MoonIcon: typeof import('./src/components/icons/MoonIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SunIcon: typeof import('./src/components/icons/SunIcon.vue')['default']
     TableLoader: typeof import('./src/components/TableLoader.vue')['default']
+    ThemeSwitcher: typeof import('./src/components/ThemeSwitcher.vue')['default']
     UiSearch: typeof import('./src/components/UiSearch.vue')['default']
   }
 }
