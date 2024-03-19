@@ -1,6 +1,4 @@
 import axios from 'axios'
-import type { ResultError } from './ResultContainer'
-
 type TNetworkErrorHandler = () => void
 
 let _onNetworkError: TNetworkErrorHandler
