@@ -1,10 +1,12 @@
-import type { Lead, User } from '@/types.js'
+import type { Lead } from '@/types.js'
 import { httpClient } from './httpClient/httpClient'
 
 export interface ApiResponse<T> {
   data?: T
   error?: any
 }
+
+export type ApiFunction<T> = () => Promise<ApiResponse<T>>
 
 const request = async <T>(
   method: 'get' | 'post',
@@ -19,10 +21,6 @@ const request = async <T>(
   }
 }
 
-export const getAllLeads = async (): Promise<ApiResponse<Lead[]>> => {
-  return request('get', '/all-leads?limit=50')
-}
-
-export const getAllUsers = async (): Promise<ApiResponse<User[]>> => {
-  return request('get', '/all-users?limit=50')
+export const getAllLeads = async (query?: string): Promise<ApiResponse<Lead[]>> => {
+  return request('get', `/leads?limit=50${query ? `&query=${query}` : ''}`)
 }
