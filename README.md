@@ -1,10 +1,10 @@
 # Тестовое задание для Rocket Soft. Фронтенд-часть (Vue3, AntDesign, Typescript)
 
-Серверная часть находится по [ссылке](https://github.com/).
+Серверная часть находится по [ссылке](https://github.com/dijeth-example-tasks/rocket-backend).
 
 ## Демо проекта
 
-[Демо](https://dijeth.github.io/rocket)
+[Демо](https://dijeth-example-tasks.github.io/rocket-ui/)
 
 ## Установка
 
