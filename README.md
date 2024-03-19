@@ -2,10 +2,6 @@
 
 Серверная часть находится по [ссылке](https://github.com/dijeth-example-tasks/rocket-backend).
 
-## Демо проекта
-
-[Демо](https://dijeth-example-tasks.github.io/rocket-ui/)
-
 ## Установка
 
 ```bash
