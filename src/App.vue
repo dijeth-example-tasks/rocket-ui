@@ -7,7 +7,7 @@
     <Layout>
       <div style="padding: 30px; min-height: 100vh">
         <ThemeSwitcher @switch="handleThemeSwitch" />
-        <a-card style="width: 100%" title="Тестовое задание 'Интегация с AmoCrm'">
+        <a-card style="overflow-x: auto" title="Тестовое задание 'Интегация с AmoCrm'">
           <template #extra>
             <UiSearch @search="handleSearch" />
           </template>

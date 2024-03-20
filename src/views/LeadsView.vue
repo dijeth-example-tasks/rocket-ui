@@ -38,29 +38,32 @@ const apiFn = computed(() => () => getAllLeads(query.value))
 
 const columns: ATableColumn[] = [
   {
+    width: 200,
     title: 'Название',
     dataIndex: 'name',
     key: 'name',
     ellipsis: true,
-    width: 400,
   },
   {
+    width: 200,
     title: 'Бюджет',
     dataIndex: 'price',
     key: 'price',
-    width: 150,
   },
   {
+    width: 200,
     title: 'Статус',
     dataIndex: 'status',
     key: 'status',
   },
   {
+    width: 200,
     title: 'Ответственный',
     key: 'user',
     dataIndex: 'user',
   },
   {
+    width: 200,
     title: 'Дата создания',
     key: 'createdAt',
     dataIndex: 'createdAt',
