@@ -1,5 +1,13 @@
 <template>
-  <a-table :columns="columns" :data-source="data">
+  <a-table
+    :columns="columns"
+    :data-source="data"
+    :scroll="{ x: 200 }"
+    :pagination="{
+      size: 'small',
+      position: ['bottomCenter'],
+    }"
+  >
     <template #emptyText> <component :is="lodaingStatus" /></template>
 
     <template #bodyCell="{ column, record }">
